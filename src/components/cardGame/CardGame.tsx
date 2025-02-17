@@ -114,12 +114,10 @@ const CardGame = (props: CardGameProps) => {
     };
 
     const shuffledCards = useMemo(() => {
-        if (chosenGameVariant === gameVariant.ANIMAL) {
-            return [...cardGameItemsAnimals].sort(() => Math.random() - 0.5);
-        } else {
-            return [...cardGameItemsFruit].sort(() => Math.random() - 0.5);
-        }
-    }, [chosenGameVariant]);
+        const cards =
+            chosenGameVariant === gameVariant.ANIMAL ? cardGameItemsAnimals : cardGameItemsFruit;
+        return [...cards].sort(() => Math.random() - 0.5);
+    }, [chosenGameVariant, startNewGame]);
 
     useEffect(() => {
         if (startNewGame) {
@@ -153,7 +151,6 @@ const CardGame = (props: CardGameProps) => {
     useEffect(() => {
         if (correctCard.length === 6) {
             handleEndGame();
-            // handleNewGame();
         }
     }, [correctCard]);
 
