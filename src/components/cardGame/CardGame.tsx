@@ -104,7 +104,7 @@ const CardGame = (props: CardGameProps) => {
     const [openedCardsIndex, setOpenedCardsIndex] = useState<number[]>([]);
     const [correctCard, setCorrectCard] = useState<string[]>([]);
     const [openAllCards, setOpenAllCards] = useState<boolean>(false);
-    const [disabledAllCards, setDisabledAllCards] = useState<boolean>(true);
+    const [disabledAllCards, setDisabledAllCards] = useState<boolean>(false);
 
     const soundRef = useRef(new Audio(require('../../assets/sounds/click.mp3')));
 
@@ -123,6 +123,7 @@ const CardGame = (props: CardGameProps) => {
 
     useEffect(() => {
         if (startNewGame) {
+            setDisabledAllCards(true);
             setTimeout(() => {
                 setOpenAllCards(true);
             }, 3000);
@@ -177,7 +178,7 @@ const CardGame = (props: CardGameProps) => {
 
     const cardItemsList = shuffledCards.map(({ name }, i) => {
         return (
-            <div key={i} onClick={() => clickCard(name, i)}>
+            <div key={i} onClick={disabledAllCards ? undefined : () => clickCard(name, i)}>
                 <CardItem
                     openedCardsIndex={openedCardsIndex}
                     correctCard={correctCard}
