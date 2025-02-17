@@ -16,7 +16,7 @@ const Modal = memo((props: ModalProps) => {
     return (
         <div className={styles.modal}>
             <div className={styles.modal__inner}>
-                <div className={styles.modal__inner_text}>Выберите режим игры</div>
+                <div className={styles.modal__inner_text}>Select the game mode</div>
                 <div className={styles.modal__inner_btns}>
                     <div
                         className={styles.modal__inner_btn}

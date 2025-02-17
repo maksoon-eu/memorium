@@ -61,7 +61,7 @@ const GamePage = () => {
                         handleNewGame();
                         setOpenModal(true);
                     }}>
-                    <Button>Начать заново</Button>
+                    <Button>Start over</Button>
                 </div>
             )}
         </>
