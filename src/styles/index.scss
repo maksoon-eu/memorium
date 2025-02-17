@@ -1,0 +1,16 @@
+@import 'variables';
+@import 'reset';
+
+body {
+    font-size: var(--font-size);
+    font-family: var(--font-family-main);
+    color: var(--font-color);
+    background-color: var(--background-color);
+}
+
+.app {
+    max-width: 1500px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}

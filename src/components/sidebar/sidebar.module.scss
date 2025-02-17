@@ -1,0 +1,20 @@
+.sidebar {
+    padding: 10px;
+    
+    &__inner {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__timer,
+    &__tries {
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: var(--font-color-inverted);
+        background-color: var(--background-color-widgets);
+    }
+
+    &__timer {
+        margin-right: 20px;
+    }
+}
