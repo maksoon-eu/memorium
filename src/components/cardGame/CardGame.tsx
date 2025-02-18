@@ -5,6 +5,7 @@ import {
     gameVariant,
 } from '../../types/types';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { randomShuffle } from '../../utils/randomShuffle';
 
 import CardItem from '../cardItem/CardItem';
 
@@ -116,7 +117,7 @@ const CardGame = (props: CardGameProps) => {
     const shuffledCards = useMemo(() => {
         const cards =
             chosenGameVariant === gameVariant.ANIMAL ? cardGameItemsAnimals : cardGameItemsFruit;
-        return [...cards].sort(() => Math.random() - 0.5);
+        return randomShuffle([...cards]);
     }, [chosenGameVariant, startNewGame]);
 
     useEffect(() => {
